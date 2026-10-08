@@ -18,3 +18,7 @@ VECTOR_SEARCH_INDEX_NAME = os.getenv("VECTOR_SEARCH_INDEX_NAME", "chunk_vector_i
 RETRIEVAL_TOP_K = int(os.getenv("RETRIEVAL_TOP_K", "5"))
 RETRIEVAL_CONTEXT_MAX_CHARS = int(os.getenv("RETRIEVAL_CONTEXT_MAX_CHARS", "12000"))
 RETRIEVAL_SIMILARITY_THRESHOLD = float(os.getenv("RETRIEVAL_SIMILARITY_THRESHOLD", "0.0"))
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").strip().lower()
+LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4.1-mini").strip()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+LLM_TIMEOUT_SECONDS = float(os.getenv("LLM_TIMEOUT_SECONDS", "30"))

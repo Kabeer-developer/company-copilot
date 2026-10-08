@@ -12,3 +12,4 @@ python-docx
 Pillow
 pytesseract
 sentence-transformers
+openai

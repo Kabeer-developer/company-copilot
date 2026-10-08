@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pymongo[srv]
+python-dotenv
+pwdlib[argon2]
+PyJWT
+email-validator
+python-multipart
+cloudinary
+pypdf
+python-docx
+Pillow
+pytesseract
+sentence-transformers

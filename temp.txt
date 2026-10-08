@@ -1,0 +1,12 @@
+{"id":"6ac0cdb7023ace0545f2466a","name":"Ada Lovelace","email":"ada@example.com","role":"EMPLOYEE","is_active":true,"created_at":"2026-10-03T09:41:11.630738Z"}
+and {"name":"Ada Lovelace","email":"ada@example.com","password":"strong-password"}  and 
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YWMwY2RiNzAyM2FjZTA1NDVmMjQ2NmEiLCJyb2xlIjoiRU1QTE9ZRUUiLCJleHAiOjE3OTEwMjIzODV9.IF934tgMrUw-KHGKqQFcLdVAsmXXxhgxjsE3O5XxZaI","token_type":"bearer","user":{"id":"6ac0cdb7023ace0545f2466a","name":"Ada Lovelace","email":"ada@example.com","role":"EMPLOYEE","is_active":true,"created_at":"2026-10-03T09:41:11.630000"}}
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YWMwZDU0Y2I0OWZmYWRlYjViMTc2OWEiLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3OTEwMjQyOTd9.8BBiUfA9EMBxjX8-1PEjBTQ6x9lWcMgcxnLVO_b2IqI","token_type":"bearer","user":{"id":"6ac0d54cb49ffadeb5b1769a","name":"Kabeer","email":"kabeer@admin.com","role":"ADMIN","is_active":true,"created_at":"2026-10-03T10:13:32.043000"}}
+
+
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YWMwZDU0Y2I0OWZmYWRlYjViMTc2OWEiLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3OTEwOTU1MjJ9.YUOSHmfUhblNba8LPuCqA-gXPwQ3C3u98dVJWtTTRxM","token_type":"bearer","user":{"id":"6ac0d54cb49ffadeb5b1769a","name":"Kabeer","email":"kabeer@admin.com","role":"ADMIN","is_active":true,"created_at":"2026-10-03T10:13:32.043000"}}
+
+
+{"id":"6ac1ec661a7864a63bd422d8","filename":"12th.pdf","file_type":"application/pdf","file_size":4660504,"cloudinary_url":"https://res.cloudinary.com/dmkyqoilm/raw/authenticated/s--sedDOTel--/v1791093861/company-knowledge-copilot/documents/jjrooudnfcaba4qocdkf","uploaded_by":"6ac0d54cb49ffadeb5b1769a","uploaded_at":"2026-10-04T06:04:22.871723Z","status":"uploaded"}

@@ -22,3 +22,6 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
 LLM_MODEL = os.getenv("LLM_MODEL", "llama3.2:3b").strip()
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").strip()
 LLM_TIMEOUT_SECONDS = float(os.getenv("LLM_TIMEOUT_SECONDS", "120"))
+CONVERSATION_HISTORY_LIMIT = int(os.getenv("CONVERSATION_HISTORY_LIMIT", "10"))
+if not 0 <= CONVERSATION_HISTORY_LIMIT <= 50:
+    raise ValueError("CONVERSATION_HISTORY_LIMIT must be between 0 and 50")

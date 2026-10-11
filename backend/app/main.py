@@ -11,6 +11,7 @@ from app.routes.users import router as users_router
 from app.routes.search import router as search_router
 from app.routes.retrieval import router as retrieval_router
 from app.routes.chat import router as chat_router
+from app.routes.conversations import router as conversations_router
 
 
 load_dotenv()
@@ -34,6 +35,7 @@ app.include_router(documents_router, prefix="/api/documents", tags=["documents"]
 app.include_router(search_router, prefix="/api/search", tags=["search"])
 app.include_router(retrieval_router, prefix="/api/retrieval", tags=["retrieval"])
 app.include_router(chat_router, prefix="/api/chat", tags=["chat"])
+app.include_router(conversations_router, prefix="/api/conversations", tags=["conversations"])
 
 
 @app.get("/health")

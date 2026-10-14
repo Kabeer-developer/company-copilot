@@ -17,6 +17,10 @@ from app.models.document import ChunkingStatus, DocumentStatus, EmbeddingStatus
 
 logger = logging.getLogger(__name__)
 MAX_FILE_SIZE = 10 * 1024 * 1024
+# A small compressed DOCX can expand into a very large XML payload. Keep the
+# expanded ZIP content bounded separately from the uploaded file-size limit.
+MAX_DOCX_UNCOMPRESSED_SIZE = 50 * 1024 * 1024
+MAX_DOCX_COMPRESSION_RATIO = 100
 READ_CHUNK_SIZE = 64 * 1024
 GENERIC_BINARY_MIME = "application/octet-stream"
 FILE_TYPES = {
@@ -131,10 +135,20 @@ async def validate_upload(upload: UploadFile) -> tuple[str, str, str, int]:
         await upload.seek(0)
         try:
             with zipfile.ZipFile(upload.file) as archive:
-                entries = set(archive.namelist())
+                entries = archive.infolist()
+                expanded_size = sum(entry.file_size for entry in entries)
+                if expanded_size > MAX_DOCX_UNCOMPRESSED_SIZE:
+                    raise InvalidDocumentError("DOCX expanded content exceeds the supported limit")
+                if any(
+                    entry.file_size > 0
+                    and (entry.compress_size == 0 or entry.file_size / entry.compress_size > MAX_DOCX_COMPRESSION_RATIO)
+                    for entry in entries
+                ):
+                    raise InvalidDocumentError("DOCX compression ratio exceeds the supported limit")
+                entry_names = {entry.filename for entry in entries}
         except (OSError, zipfile.BadZipFile) as exc:
             raise InvalidDocumentError("DOCX must be a valid Office document") from exc
-        if "[Content_Types].xml" not in entries or "word/document.xml" not in entries:
+        if "[Content_Types].xml" not in entry_names or "word/document.xml" not in entry_names:
             raise InvalidDocumentError("DOCX must contain a Word document")
 
     await upload.seek(0)
